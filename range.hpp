@@ -27,7 +27,7 @@ public:
 
     };
     public:
-    range(R start, R end): start(start), end(end){};
+    range(R s, R e): start(s), end(e){};
     auto begin() { return iterator(&start); }
     auto end() { return iterator(&end); }
 
