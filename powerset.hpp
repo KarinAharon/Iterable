@@ -34,8 +34,8 @@ template <typename R> class iterator {
 public:
 
 powerset(T _bin): _bin(_bin){};  
-auto begin() {}
-auto end() {}
+auto begin() { return iterator<decltype(_bin.begin())> (_bin.begin(), _bin.begin()); }
+auto end() { return iterator<decltype(_bin.end())> (_bin.end(), _bin.end());}
 
 };
 }
