@@ -32,8 +32,8 @@ template <typename R, typename W> class iterator {
 public:
 
 product(T b_1, U b_2): t_bin(b_1), u_bin(b_2){}
-auto begin(){}
-auto end(){}
+auto begin(){  return iterator<decltype(t_bin.begin()),decltype(u_bin.begin())>(t_bin.begin(), u_bin.begin()); }
+auto end(){ return iterator<decltype(t_bin.end()),decltype(u_bin.end())>(t_bin.end(),u_bin.end()); }
 
 };
 }
