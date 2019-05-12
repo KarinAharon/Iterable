@@ -6,8 +6,8 @@ namespace itertools{
 template <typename R> 
 class range{
 
-R bin1;
-R bin2;
+R start;
+R end;
 
 public:
     
@@ -27,11 +27,10 @@ public:
 
     };
     public:
-    range(R bin1, R bin2){}
-    auto begin() { return iterator(&bin1); }
-    auto end() { return iterator(&bin2); }
+    range(R start, R end): start(start), end(end){};
+    auto begin() { return iterator(&start); }
+    auto end() { return iterator(&end); }
 
     
 };
 }
-
