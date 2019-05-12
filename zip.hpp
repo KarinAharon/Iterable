@@ -31,9 +31,8 @@ template <typename U, typename W> class iterator {
 public:
 
 zip(T b1, R b2): bin1(b1), bin2(b2){}
-auto begin(){}
-auto end(){}
+auto begin(){  return iterator<decltype(bin1.begin()),decltype(bin2.begin())>(bin1.begin(), bin2.begin()); }
+auto end(){ return iterator<decltype(bin1.end()),decltype(bin2.end())>(bin1.end(), bin2.end()); }
 
 };
 }
-
