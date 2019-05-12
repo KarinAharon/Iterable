@@ -1,5 +1,5 @@
-#include <iostream>
 using namespace std;
+#include <iostream>
 #include "range.hpp"
 #include "chain.hpp"
 #include "zip.hpp"
@@ -7,7 +7,7 @@ using namespace std;
 #include "powerset.hpp"
 #define COMMA ,
 
-using namespace bullpgia;
+using namespace itertools;
 
 int main() {
 
@@ -16,6 +16,7 @@ int main() {
         int wrong=0;
         int right=0;
 	int signal = setjmp(badkan::longjmp_buffer);
+	
 if (signal == 0) {
 
       
