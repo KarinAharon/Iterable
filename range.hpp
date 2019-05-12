@@ -7,7 +7,7 @@ template <typename R>
 class range{
 
 R start;
-R end;
+R stop;
 
 public:
     
@@ -27,9 +27,9 @@ public:
 
     };
     public:
-    range(R s, R e): start(s), end(e){};
+    range(R _start, R _stop): start(_start), stop(_stop){};
     auto begin() { return iterator(&start); }
-    auto end() { return iterator(&end); }
+    auto end() { return iterator(&stop); }
 
     
 };
