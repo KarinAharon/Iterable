@@ -1,10 +1,10 @@
-using std::cout, std::endl;
 #include <iostream>
 #include "range.hpp"
 #include "chain.hpp"
 #include "zip.hpp"
 #include "product.hpp"
 #include "powerset.hpp"
+#include "badkan.hpp"
 
 using namespace itertools;
 
