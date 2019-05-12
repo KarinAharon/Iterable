@@ -1,11 +1,10 @@
-using namespace std;
+using std::cout, std::endl;
 #include <iostream>
 #include "range.hpp"
 #include "chain.hpp"
 #include "zip.hpp"
 #include "product.hpp"
 #include "powerset.hpp"
-#define COMMA ,
 
 using namespace itertools;
 
@@ -16,9 +15,9 @@ int main() {
         int wrong=0;
         int right=0;
 	int signal = setjmp(badkan::longjmp_buffer);
-	
 if (signal == 0) {
 
+   cout<<"1"<<endl;
       
 		
     grade = testcase.grade();
@@ -28,11 +27,10 @@ if (signal == 0) {
 } 
 
 else {
-		testcase.print_signal(signal);
+		cout<<"0"<<endl;
 		grade = 0;
 	}
 	cout <<"Your grade is: "  << grade<<" "<<"Wrong: "<< wrong<< " "<<"Right: "<<right<< " "<< endl;
 	return 0;
 
 }
-
