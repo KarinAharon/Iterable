@@ -33,8 +33,8 @@ template <typename U, typename W> class iterator {
 
 public:
 chain(R r, T t ): r_bin(r), t_bin (t){};
-auto begin() {}
-auto end() {}
+auto begin() {  return iterator<decltype(r_bin.begin()),decltype(t_bin.begin())> (r_bin.begin(), t_bin.begin()); }
+auto end()   { return iterator<decltype(r_bin.end()),decltype(t_bin.end())> (r_bin.end(), t_bin.end()); }
 
 };
 }
