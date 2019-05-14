@@ -1,4 +1,3 @@
-
 #pragma once
 #include <iostream>
 #include "range.hpp"
@@ -23,11 +22,11 @@ template <typename R> class iterator {
     public:
 
        iterator(R it1 , R it2):iter1(it1), iter2(it2){}
-       iterator<R>& operator++() {++(*iter1);return *this;}
+       iterator<R>& operator++() {++(iter1);return *this;}
        iterator<R>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
        bool operator==(const iterator<R> other) const {return iter1 == other.iter1;}
        bool operator!=(const iterator<R> other) const {return iter1 != other.iter1;}
-       decltype(*iter1) operator*() {return *iter1;}
+       auto& operator*() {return *iter1;}
        
     };
 
