@@ -10,18 +10,18 @@ namespace itertools{
 template <typename T>  class powerset{
 
 private:
-T _bin;
+const T _bin;
 
 
 template <typename R> class iterator {
 
     private:
-       R iter1;
-       R iter2;
+        R iter1;
+        R iter2;
 
     public:
 
-       iterator(R it1 , R it2):iter1(it1), iter2(it2){}
+       iterator(const R &it1 , const R &it2):iter1(it1), iter2(it2){}
        iterator<R>& operator++() {++(iter1);return *this;}
        iterator<R>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
        bool operator==(const iterator<R> other) const {return iter1 == other.iter1;}
@@ -33,8 +33,8 @@ template <typename R> class iterator {
 public:
 
 powerset(T _bin): _bin(_bin){};  
-auto begin() { return iterator<decltype(_bin.begin())> (_bin.begin(), _bin.begin()); }
-auto end() { return iterator<decltype(_bin.end())> (_bin.end(), _bin.end());}
+auto begin() const{ return iterator<decltype(_bin.begin())> (_bin.begin(), _bin.begin()); }
+auto end() const{ return iterator<decltype(_bin.end())> (_bin.end(), _bin.end());}
 
 };
 }
