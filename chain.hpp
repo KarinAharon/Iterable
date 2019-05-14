@@ -22,11 +22,11 @@ template <typename U, typename W> class iterator {
     public:
         
        iterator(U it1 , W it2):iter1(it1), iter2(it2){}
-       iterator<U,W>& operator++() {++(*iter1);return *this;}
+       iterator<U,W>& operator++() {++(iter1);return *this;}
        iterator<U,W>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
        bool operator==(const iterator<U,W> other) const {return iter1 == other.iter1;}
        bool operator!=(const iterator<U,W> other) const {return iter1 != other.iter1;}
-       decltype(*iter1) operator*() {return *iter1;}
+       auto &operator*() {return *iter1;}
 
 
     };
