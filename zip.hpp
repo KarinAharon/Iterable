@@ -20,21 +20,11 @@ template <typename U, typename W> class iterator {
      public:
         
        iterator(const U &it1 , const W &it2):iter1(it1), iter2(it2){}
-       iterator<U,W>& operator++() {
-		++(iter1);
-		++(iter2);
-		return *this;
-	}
-     //  iterator<U,W>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
-       bool operator==(const iterator<U,W> other) const {
-		return iter1 == other.iter1 && iter2 == other.iter2;
-	}
-       bool operator!=(const iterator<U,W> other) const {
-		return iter1 != other.iter1 && iter2 != other.iter2;
-	}
-       auto operator*() const {
-	return pair<decltype(*iter1),decltype(*iter2)> (*iter1,*iter2);
-	}
+       iterator<U,W>& operator++() {++(iter1);return *this;}
+       iterator<U,W>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
+       bool operator==(const iterator<U,W> other) const {return iter1 == other.iter1;}
+       bool operator!=(const iterator<U,W> other) const {return iter1 != other.iter1;}
+       auto& operator*() {return *iter1;}
        
     };
 
@@ -45,10 +35,4 @@ auto begin()const {  return iterator<decltype(bin1.begin()),decltype(bin2.begin(
 auto end()const { return iterator<decltype(bin1.end()),decltype(bin2.end())>(bin1.end(), bin2.end()); }
 
 };
-
-template <typename U, typename W>
-ostream& operator<<(ostream &os, const pair<U,W> &zip){
- os<< zip.first<< ","<< zip.second;
- return os;
-}
 }
