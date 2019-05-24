@@ -18,15 +18,27 @@ template <typename U, typename W> class iterator {
     private:
         U iter1;
         W iter2;
+        bool firseIter;
 
     public:
         
-       iterator(const U &it1 ,const W &it2):iter1(it1), iter2(it2) {}
-       iterator<U,W>& operator++() {++(iter1);return *this;}
-       iterator<U,W>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
-       bool operator==(const iterator<U,W> other) const {return iter1 == other.iter1;}
-       bool operator!=(const iterator<U,W> other) const {return iter1 != other.iter1;}
-       auto &operator*() {return *iter1;}
+       iterator(const U &it1 ,const W &it2):iter1(it1), iter2(it2) , firstIter(true){}
+       iterator<U,W>& operator++() {
+           if(firstIter) ++(iter1);
+           else ++(iter2);
+           return *this;
+       }
+     //  iterator<U,W>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
+      // bool operator==(const iterator<U,W> other) const {return iter1 == other.iter1;}
+       bool operator!=(const iterator<U,W> other) const {
+            if(firstIter && it1 == it.it1) firstIter = false;
+            if(firstIter) return it1 != other.it1;
+            else return it2 != other.it2;
+       }
+       auto &operator*() {
+           if(firstIter) return *iter1;
+           return *iter2;
+       }
 
 
     };
