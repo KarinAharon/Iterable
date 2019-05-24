@@ -23,7 +23,7 @@ template <typename U, typename W> class iterator {
     public:
         
        iterator(const U &it1 ,const W &it2, const U &it3):iter1(it1), iter2(it2), iterEnd(it3) {
-           it3=it1.end();
+         
        }
        iterator<U,W>& operator++() {++(iter1);return *this;}
        iterator<U,W>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
