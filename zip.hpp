@@ -40,8 +40,4 @@ auto begin()const {  return iterator<decltype(bin1.begin()),decltype(bin2.begin(
 auto end()const { return iterator<decltype(bin1.end()),decltype(bin2.end())>(bin1.end(), bin2.end()); }
 
 };
-template <typename X, typename Y> ostream& operator<<(ostream result, const zip<X,Y> z){
-result<<z.bin1<<","<<z.bin2;
-return result;
-}  
 }
