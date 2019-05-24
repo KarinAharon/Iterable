@@ -24,7 +24,7 @@ template <typename R, typename W> class iterator {
        iterator<R,W>& operator++() {++(iter1);return *this;}
        iterator<R,W>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
        bool operator==(const iterator<R,W> other) const {return iter1 == other.iter1;}
-       bool operator!=(const iterator<R,W> other) const {return iter1 != other.iter1;}
+       bool operator!=( iterator<R,W> other)  {return iter1 != other.iter1;}
        auto& operator*() {return *iter1;}
        
     };
