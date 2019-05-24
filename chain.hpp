@@ -35,7 +35,7 @@ template <typename U, typename W> class iterator {
             if(firstIter) return it1 != other.it1;
             else return it2 != other.it2;
        }
-       auto &operator*() {
+       auto &operator*() const {
            if(firstIter) return *iter1;
            return *iter2;
        }
