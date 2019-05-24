@@ -21,13 +21,14 @@ template <typename U, typename W> class iterator {
         
        iterator(const U &it1 , const W &it2):iter1(it1), iter2(it2){}
        iterator<U,W>& operator++() {
-		++(iter1);
-		++(iter2);
-		return *this;
-	}
-    //   iterator<U,W>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
-      // bool operator==(const iterator<U,W> other) const {return iter1 == other.iter1;}
-       bool operator!=( iterator<U,W> other)  {return (iter1 != other.iter1) && (iter2!=other.iter2);}
+       ++(iter1);
+       ++(iter2);
+       return *this;}
+       iterator<U,W>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
+       bool operator==(const iterator<U,W> other) const {
+       return (iter1 == other.iter1 || iter1 == other.iter1);}
+       bool operator!=( iterator<U,W> other)  { 
+       return (iter1 != other.iter1 || iter1 != other.iter1);}
        auto& operator*() {return *iter1;}
        
     };
