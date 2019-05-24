@@ -18,13 +18,10 @@ template <typename U, typename W> class iterator {
     private:
         U iter1;
         W iter2;
-        U iterEnd;
 
     public:
         
-       iterator(const U &it1 ,const W &it2, const U &it3):iter1(it1), iter2(it2), iterEnd(it3) {
-         
-       }
+       iterator(const U &it1 ,const W &it2):iter1(it1), iter2(it2) {}
        iterator<U,W>& operator++() {++(iter1);return *this;}
        iterator<U,W>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
        bool operator==(const iterator<U,W> other) const {return iter1 == other.iter1;}
