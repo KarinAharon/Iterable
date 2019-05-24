@@ -31,9 +31,9 @@ template <typename U, typename W> class iterator {
      //  iterator<U,W>& operator++(int) {iterator tmp(*this); operator++(); return tmp;}
       // bool operator==(const iterator<U,W> other) const {return iter1 == other.iter1;}
        bool operator!=(const iterator<U,W> other) const {
-            if(firstIter && !(it1 != it.it1)) firstIter = false;
-            if(firstIter) return it1 != other.it1;
-            else return it2 != other.it2;
+            if(firstIter && !(iter1 != it.iter1)) firstIter = false;
+            if(firstIter) return iter1 != other.iter1;
+            else return iter2 != other.iter2;
        }
        auto &operator*() const {
            if(firstIter) return *iter1;
