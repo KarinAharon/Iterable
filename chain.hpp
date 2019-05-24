@@ -18,7 +18,7 @@ template <typename U, typename W> class iterator {
     private:
         U iter1;
         W iter2;
-        bool firseIter;
+        bool firstIter;
 
     public:
         
